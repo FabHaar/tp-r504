@@ -3,5 +3,12 @@ def puissance(a,b):
 		raise TypeError ("Only integers are allowed")
 	if not type(b) is int :
 		raise TypeError ("Only integers are allowed")
-	return a**b
+	if b == 0 :
+		if a < 0 :
+			return -1
+		else :
+			return 1
+	if a == 0 & b<0 :
+		raise TypeError ("0 avec une puissance négative impossible")
 	
+	return a**b
