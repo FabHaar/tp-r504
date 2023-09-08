@@ -8,5 +8,4 @@ jobs:
       - name: Set up Python for Demo
         uses: actions/setup-python@v4
       - name: Run tests
-      	run: pip3 install pytest
         run: pytest TP1/test.py
