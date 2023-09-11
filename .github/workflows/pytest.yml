@@ -11,6 +11,7 @@ jobs:
         run: pip3 install pytest
       - name: Run tests
         run: pytest TP1/test.py
-      - name: Complement tp1
+      - name: Affichage branche
       	run: echo "Nom branche: ${{ github.ref }}"
+      - name : Affichage Os
       	run: echo "os: ${{ runner.os }}"
