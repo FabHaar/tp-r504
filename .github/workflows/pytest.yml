@@ -12,5 +12,5 @@ jobs:
       - name: Run tests
         run: pytest TP1/test.py
       - name: complément TP1
-      	run: "echo "Nom branche: ${{ github.ref }}""
-      	run: "echo "os: ${{ runner.os }}""
+      	run: echo "Nom branche: ${{ github.ref }}"
+      	run: echo "os: ${{ runner.os }}"
