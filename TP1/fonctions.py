@@ -15,7 +15,7 @@ def puissance(a,b):
 	
 	if b < 0 :
 		bb = b* -1
-	else
+	else :
 		bb = b
 	
 	retour = float(a)
