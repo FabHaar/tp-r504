@@ -16,3 +16,5 @@ def test_3() :
 	
 def test_4() : 
 	assert f.puissance(3,-5) == 1/(3**5)
+	assert f.puissance(3,-1) == 1/(3**1)
+	assert f.puissance(3,1) == 3**1
