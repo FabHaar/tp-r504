@@ -12,6 +12,6 @@ jobs:
       - name: Run tests
         run: pytest TP1/test.py
       - name: Affichage branche
-      	run: echo "Nom branche: ${{ github.ref }}"
+        run: echo "Nom branche: ${{ github.ref }}"
       - name : Affichage Os
-      	run: echo "os: ${{ runner.os }}"
+        run: echo "os: ${{ runner.os }}"
