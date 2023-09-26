@@ -5,14 +5,14 @@
 docker stop $(docker ps -aq)
 if [ $? != 0 ]
 then
-	echo "erreur sur docker stop"
+	exit 1
 fi
 
 #supprime tous les conteneurs
 docker rm $(docker ps -aq)
 if [ $? != 0 ]
 then
-	echo "erreur sur docker rm"
+	exit 2
 fi
 
 #2.2
@@ -20,12 +20,12 @@ fi
 docker volume prune
 if [ $? != 0 ]
 then
-	echo "erreur sur docker volume prune"
+	exit 3
 fi
 
 #supprimme les réseaux
 docker network prune
 if [ $? != 0 ]
 then
-	echo "erreur sur docker network prune"
+	exit 4
 fi
