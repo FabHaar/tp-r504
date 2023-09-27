@@ -3,29 +3,34 @@
 #2.1
 #stop tous les conteneurs
 docker stop $(docker ps -aq)
-if [ $? != 0 ]
+
+error=$?
+if [ $error != 0 ]
 then
-	exit 1
+	exit $error
 fi
 
 #supprime tous les conteneurs
 docker rm $(docker ps -aq)
-if [ $? != 0 ]
+error=$?
+if [ $error != 0 ]
 then
-	exit 2
+	exit $error
 fi
 
 #2.2
 #supprime les volumes
 docker volume prune
-if [ $? != 0 ]
+error=$?
+if [ $error != 0 ]
 then
-	exit 3
+	exit $error
 fi
 
 #supprimme les réseaux
 docker network prune
-if [ $? != 0 ]
+error=$?
+if [ $error != 0 ]
 then
-	exit 4
+	exit $error
 fi
