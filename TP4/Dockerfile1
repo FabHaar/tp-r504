@@ -1,0 +1,14 @@
+FROM debian:11
+
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install build-essential python-dev python3-pip default-libmysqlclient-dev -y
+
+RUN apt-get install pkg-config -y
+
+RUN pip3 install --upgrade pip
+RUN pip3 install flask-mysqldb && pip3 install mysql-connector-python
+
+RUN mkdir /srv/templates 
+
+COPY index.html /srv/templates/index.html
+COPY app_1.py /srv/app_1.py
