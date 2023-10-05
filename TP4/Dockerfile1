@@ -12,3 +12,5 @@ RUN mkdir /srv/templates
 
 COPY index.html /srv/templates/index.html
 COPY app_1.py /srv/app_1.py
+
+CMD ["flask","--app","/srv/app_1","run","--host=0.0.0.0"]
