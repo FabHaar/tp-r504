@@ -23,6 +23,7 @@ fi
 
 if [ $? != 0 ]
 then
+
 	exit 3
 fi
 
