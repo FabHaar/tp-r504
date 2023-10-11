@@ -19,7 +19,9 @@ then
 fi
 
 #Etape 3 : Création de contenu dans la base de données : 
+echo "attente de 1 minute pour que le conteneur sql soit totalement opérationnel" 
 sleep 60
+
 ./filldb.sh
 
 if [ $? != 0 ]
