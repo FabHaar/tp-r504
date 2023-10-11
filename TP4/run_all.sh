@@ -19,6 +19,7 @@ then
 fi
 
 #Etape 3 : Création de contenu dans la base de données : 
+sleep 60
 ./filldb.sh
 
 if [ $? != 0 ]
