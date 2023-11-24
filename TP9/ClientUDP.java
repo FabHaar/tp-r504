@@ -7,6 +7,7 @@ public class ClientUDP
 	{
 		try 
 		{
+			//Q1
 			InetAddress addr = InetAddress.getLocalHost();
 			System.out.println("adresse = " + addr.getHostName() );
 		
@@ -17,6 +18,13 @@ public class ClientUDP
 			DatagramPacket packet = new DatagramPacket( data, data.length, addr, 1234);
 			DatagramSocket sock = new DatagramSocket();
 			sock.send(packet);
+			
+			//Q1.3
+			System.out.println("-Waiting data back");
+			DatagramPacket packetback = new DatagramPacket(new byte[1024], 1024);
+			sock.receive(packetback);
+			String str = new String(packet.getData() );
+			System.out.println( "str back=" + str );
 			sock.close();
 		}
 		catch (Exception ex) 
