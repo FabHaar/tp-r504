@@ -7,7 +7,7 @@ public class ClientTCP
 	{
 		try
 		{
-			//q2.1
+			//q2.1 
 			Socket socket = new Socket("localhost",2016);
 			DataOutpuStream dOut = new DataOutputStream(socket, getOutputStream() );
 			dOut.writeUTF("message test");
