@@ -1,3 +1,3 @@
 #!/bin/bash
 
-javac -classpath $(pwd)/lib/* *.java
+javac -classpath $(pwd)"/lib/*" *.java
