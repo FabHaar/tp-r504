@@ -10,7 +10,14 @@ public class Client1
 	{
 		try 
 		{
-			
+			if (args.length > 0)
+			{
+				
+			}
+			else 
+			{
+				System.out.println("Pas d'argument fourni");
+			}
 		}
 		catch (Exception ex) 
 		{
