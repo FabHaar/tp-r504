@@ -4,6 +4,8 @@ import org.apache.http.client.*;
 import org.apache.http.client.methods.*;
 import org.apache.http.impl.client.*;
 
+import javax.json.*;
+
 public class Client2
 {
 	public static void main ( String[] args )
@@ -26,7 +28,13 @@ public class Client2
 				
 				//client rest
 				InputStreamReader isr = new InputStreamReader(resp.getEntity().getContent() );
+				JsonReader reader = Json.createReader(isr);
+				JsonObject jsonObject = reader.readObject();
 				
+				reader.close();
+				isr.close();
+				
+				System.out.println("duree=" + jsonObject.getString.getString("Runtime") );
 			}
 			else 
 			{
