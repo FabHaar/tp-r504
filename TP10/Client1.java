@@ -12,7 +12,15 @@ public class Client1
 		{
 			if (args.length > 0)
 			{
+				CloseableHttpClient client = HttpClients.createDefault();
+				String url = "http://" + args[0];
+				HttpGet request = new HttpGet(url);
 				
+				System.out.println("Executing request " + request.getRequestLine());
+				CloseableHttpResponse resp = client.execute(request);
+				
+				System.out.println("Response Line : " + resp.getStatusLine());
+				System.out.println("Response Code : " + resp.getStatusLine().getStatusCode());
 			}
 			else 
 			{
