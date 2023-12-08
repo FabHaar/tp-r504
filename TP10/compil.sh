@@ -1,3 +1,3 @@
 #!/bin/bash
 
-javac -classpath "$HOME""/lib/*" *.java
+javac -classpath "/home/user/lib/*" *.java
