@@ -1,3 +1,3 @@
 #!/bin/bash
 
-java -classpath $(pwd)"/lib/*" $1
+java -classpath ".;""$HOME""/lib/*" $1
