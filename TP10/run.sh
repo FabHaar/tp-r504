@@ -1,3 +1,3 @@
 #!/bin/bash
 
-java -classpath ".:/home/user/lib/*" $1 $2
+java -classpath ".:/home/haar/lib/*" $1 $2
