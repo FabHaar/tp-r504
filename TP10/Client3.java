@@ -109,7 +109,7 @@ public class Client3
 		}
 		catch( Exception ex ) {
 			System . out . println( " erreur ! " ) ;
-			ex . printStackTrace ( ) ;
+			//ex . printStackTrace ( ) ;
 		}
 	}
 }
