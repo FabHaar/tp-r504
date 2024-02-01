@@ -1,2 +1,2 @@
 changer les droits pour un user sur un dossier :setfacl -m u:haar:rwx dbidon
-voir l'état des droits d'un dossier
+voir l'état des droits d'un dossier : getfacl dbidon/
