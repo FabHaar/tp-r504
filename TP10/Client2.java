@@ -6,6 +6,8 @@ import org.apache.http.impl.client.*;
 
 import javax.json.*;
 
+// pour tester : ./run.sh Client2 "www.omdbapi.com/?APIKEY=751ea6aa&t=jaws"
+
 public class Client2
 {
 	public static void main ( String[] args )
@@ -34,7 +36,7 @@ public class Client2
 				reader.close();
 				isr.close();
 				
-				System.out.println("duree=" + jsonObject.getString.getString("Runtime") );
+				System.out.println("duree=" + jsonObject.getString("Runtime") );
 			}
 			else 
 			{
