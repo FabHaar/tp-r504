@@ -1,4 +1,4 @@
-#import mysql.connector
+import mysql.connector
 import re
 from flask import Flask, render_template, request
 
@@ -14,17 +14,17 @@ def validate_password(password):
 	tab_validation = [bool(re.match(regex1, password)), bool(re.match(regex2, password)), bool(re.match(regex3, password)), bool(re.match(regex4, password)), bool(re.match(regex5, password))]
 	return tab_validation
 	
-# Config mysql-------------------------------------------
-#db_config = {
-#    'host': 'serveur-mysql',
-#    'user': 'root',
-#    'password': 'foo',
-#    'database': 'sae61',
-#	'port': '3306'
-#}
+#Config mysql-------------------------------------------
+db_config = {
+    'host': 'serveur-mysql',
+    'user': 'root',
+    'password': 'foo',
+    'database': 'sae61',
+	'port': '3306'
+}
 # Connexion à la bdd
-#conn = mysql.connector.connect(**db_config)
-#cursor = conn.cursor()
+conn = mysql.connector.connect(**db_config)
+cursor = conn.cursor()
 # Fin config mysql --------------------------------------
 
 # Route pour la page d'accueil
