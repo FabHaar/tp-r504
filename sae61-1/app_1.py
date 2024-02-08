@@ -12,19 +12,41 @@ def validate_password(password):
 	regex5 = r".*[#%{}@].*" #au moins un de ces caractères
 	
 	tab_validation = [bool(re.match(regex1, password)), bool(re.match(regex2, password)), bool(re.match(regex3, password)), bool(re.match(regex4, password)), bool(re.match(regex5, password))]
-	return tab_validation
-	
+	return tab_validation	
 #Config mysql-------------------------------------------
 db_config = {
-    'host': 'serveur-mysql',
-    'user': 'root',
-    'password': 'foo',
-    'database': 'sae61',
+	'host': 'serveur-mysql',
+	'user': 'root',
+	'password': 'foo',
+	'database': 'sae61',
 	'port': '3306'
 }
-# Connexion à la bdd
-conn = mysql.connector.connect(**db_config)
-cursor = conn.cursor()
+
+def sql_insert(query):
+	# Connexion à la bdd
+	conn = mysql.connector.connect(**db_config)
+	cursor = conn.cursor()
+	
+	cursor.execute(query)
+    
+	#fin de connexion
+	cursor.close()
+	conn.close()
+    
+def sql_select(query):
+	# Connexion à la bdd
+	conn = mysql.connector.connect(**db_config)
+	cursor = conn.cursor()
+	
+	#Execution de la requete
+	cursor.execute(query)
+	#Recuperation du select
+	data = cursor.fetchall()
+	
+	#fin de connexion
+	cursor.close()
+	conn.close()
+
 # Fin config mysql --------------------------------------
 
 # Route pour la page d'accueil
