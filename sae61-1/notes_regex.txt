@@ -1,0 +1,6 @@
+Regex à utiliser : 
+entre 6 et 15 caractères : ^.{6,15}$
+au moins un chiffre : .*\d.*
+au moins une minuscule : .*[a-z].*
+au moins une majuscule : .*[A-Z].*
+au moins un de ces caractères : .*[#%{}@].*
