@@ -43,7 +43,7 @@ def new_user():
 	message = ''
 
 	if request.method == 'POST':                                       # En attente d'une requête de type POST
-	     	username = request.form['username']                        # Récupère l'identifiant saisi dans le formulaire HTML
+		username = request.form['username']                        # Récupère l'identifiant saisi dans le formulaire HTML
 		email = request.form['email']                              # Récupère l'email saisi dans le formulaire HTML
 		password = request.form['password']                        # Récupère le mot de passe saisi dans le formulaire HTML
 		#LeReturn = validate_password(password)
