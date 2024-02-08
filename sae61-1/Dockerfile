@@ -8,10 +8,10 @@ RUN apt-get install pkg-config -y
 RUN pip3 install --upgrade pip
 
 RUN pip3 install flask
-RUN pip3 install flask-mysqldb && pip3 install mysql-connector-python
+#RUN pip3 install flask-mysqldb && pip3 install mysql-connector-python
 
 RUN mkdir /srv/templates 
 
-COPY index.html /srv/templates/index.html
+COPY newuser.html /srv/templates/newuser.html
 
 CMD ["flask","--app","/srv/app_1","run","--host=0.0.0.0"]

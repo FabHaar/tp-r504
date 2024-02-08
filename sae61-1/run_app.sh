@@ -5,4 +5,10 @@ docker run -d -it\
 		--name regex-app \
 		--network net-sae61 \
 		--mount type=bind,source="$(pwd)"/app_1.py,target=/srv/app_1.py \
-		im-regex
+		im-sae61
+
+if [ $? != 0 ]
+then
+	echo "echec de lancement du conteneur app"
+	exit 1
+fi
