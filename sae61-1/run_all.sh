@@ -2,26 +2,27 @@
 
 
 # étape d'initialisation
-#read -p "Do you want to proceed a purge ? (y/n) " yn
+read -p "Do you want to proceed a purge ? (y/n) " yn
 
-#case $yn in 
-#	[yY] ) echo ok, we will proceed a purge;
-#	      ./purge.sh;;
-#	[nN] ) echo ok maybe later...;
-#		exit;;
-#	* ) echo invalid response;
-#		exit 1;;
-#esac
-
-
-#if [ $? != 0 ] 
-#then
-#	echo "echec d'initialisation : étape initialisation"
-#	exit 1
-#fi
+case $yn in 
+	[yY] ) echo ok, we will proceed a purge;
+	      ./purge.sh;;
+	[nN] ) echo ok maybe later...;
+		exit;;
+	* ) echo invalid response;
+		exit 1;;
+esac
 
 
+if [ $? != 0 ] 
+then
+	echo "echec d'initialisation : étape initialisation"
+	exit 1
+fi
 
+#Etape 0 : Création du lien réseau
+	./create_network.sh
+	
 #Etape 1 : lancement du serveur mysql
 	./run_mysql.sh
 
