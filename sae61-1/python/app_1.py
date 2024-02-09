@@ -7,9 +7,62 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 	return """
-	<h1>Accueil</h1>
-	<p>Bienvenue sur notre site !</p>
-	<p>Pour créer un nouveau compte, veuillez accéder à la <a href="/newuser">page de création de compte</a>.</p>
+	<!DOCTYPE html>
+	<html lang="fr">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Accueil</title>
+	    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Lien vers votre fichier CSS -->
+	    <style>
+	   	 body {
+		    font-family: Arial, sans-serif;
+		    background-color: #0f1723; /* Couleur de fond foncée */
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 100vh;
+		    color: #000; /* Couleur du texte (noir) */
+		}
+
+		.container {
+		    background-color: #fff;
+		    border-radius: 8px;
+		    padding: 20px;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    width: 300px;
+		}
+
+		h1 {
+		    text-align: center;
+		}
+
+		p {
+		    margin-top: 20px;
+		    text-align: justify;
+		}
+
+		a {
+		    color: #4caf50; /* Couleur du lien */
+		    text-decoration: none;
+		}
+
+		a:hover {
+		    text-decoration: underline;
+		}
+
+	    </style>
+	</head>
+	<body>
+	    <div class="container">
+		<h1>Accueil</h1>
+		<p>Bienvenue sur notre site !</p>
+		<p>Pour créer un nouveau compte, veuillez accéder à la <a href="/newuser">page de création de compte</a>.</p>
+	    </div>
+	</body>
+	</html>
+	
 	"""
 
 
