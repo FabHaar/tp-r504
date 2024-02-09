@@ -70,13 +70,37 @@ def new_user():
 		username = request.form['username']                        # Récupère l'identifiant saisi dans le formulaire HTML
 		email = request.form['email']                              # Récupère l'email saisi dans le formulaire HTML
 		password = request.form['password']                        # Récupère le mot de passe saisi dans le formulaire HTML
-		#LeReturn = validate_password(password)
-		#if validate_username(username) and validate_email(email) and validate_password(password):  # Valide les champs
-		#    message = 'Données valides !'
-		if validate_password(password):                            # Valide le mot de passe en utilisant la fonction validate_password
-			message = 'Mot de passe valide !'
+		
+		validation = validate_password(password)                   #rempli la variable validation avec tout ce qu'il faut pour le traitement de chaque critère selon password
+		
+		i = 0	#initilaisation d'un compteur qui servira à valider si toutes les regex sont respectées
+		message="Le mot de passe ne respecte pas les criteres suivants : "			
+		if validation[0]:
+			i = i+1
 		else:
-			message = 'Le mot de passe doit contenir au moins 6 caractères, au moins 1 chiffre, une majuscule et une minuscule.'
+			message = message + "Entre 6 et 15 caracteres "
+		if validation[1]:
+			i = i+1
+		else:
+			message = message + "Au moins un chiffre "
+		if validation[2]:
+			i = i+1
+		else:
+			message = message + "Au moins une minuscule"
+		if validation[3]:
+			i = i+1
+		else:
+			message = message + "Au moins une majuscule "
+		if validation[4]:
+			i = i+1
+		else:
+			message = message + "Au moins un de ces caractères : #%{}@"
+		
+		if i==5:
+			message = "Mot de passe valide"
+		
+		
+		#if validate_username(username) and validate_email(email) and validate_password(password):  # Valide les champs
     
 	return render_template('newuser.html', message=message)            # Renvoie la page HTML 'newuser.html' avec le message à afficher
 
