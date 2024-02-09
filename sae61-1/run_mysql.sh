@@ -5,6 +5,8 @@ docker run --rm -d \
 		-v vol-sql-demo:/var/lib/mysql \
 		--name serveur-mysql \
 		--env MYSQL_ROOT_PASSWORD=foo \
+		--env MYSQL_USER=python \
+		--env MYSQL_PASSWORD=python \
 		--env MYSQL_DATABASE=sae61 \
 		--network net-sae61 \
 		mysql

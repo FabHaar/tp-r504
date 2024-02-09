@@ -16,8 +16,8 @@ def validate_password(password):
 #Config mysql-------------------------------------------
 db_config = {
 	'host': 'serveur-mysql',
-	'user': 'root',
-	'password': 'foo',
+	'user': 'python',
+	'password': 'python',
 	'database': 'sae61',
 	'port': '3306'
 }
