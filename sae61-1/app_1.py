@@ -73,30 +73,25 @@ def new_user():
 		
 		validation = validate_password(password)                   #rempli la variable validation avec tout ce qu'il faut pour le traitement de chaque critère selon password
 		
-		i = 0	#initilaisation d'un compteur qui servira à valider si toutes les regex sont respectées
+		check_p = True	#initilaisation d'un compteur qui servira à valider si toutes les regex sont respectées
 		message="Le mot de passe ne respecte pas les criteres suivants : "			
-		if validation[0]:
-			i = i+1
-		else:
+		if not validation[0]:
+			check_p = False
 			message = message + "Entre 6 et 15 caracteres "
-		if validation[1]:
-			i = i+1
-		else:
+		if not validation[1]:
+			check_p = False
 			message = message + "Au moins un chiffre "
-		if validation[2]:
-			i = i+1
-		else:
+		if not validation[2]:
+			check_p = False
 			message = message + "Au moins une minuscule"
-		if validation[3]:
-			i = i+1
-		else:
+		if not validation[3]:
+			check_p = False
 			message = message + "Au moins une majuscule "
-		if validation[4]:
-			i = i+1
-		else:
+		if not validation[4]:
+			check_p = False
 			message = message + "Au moins un de ces caractères : #%{}@"
 		
-		if i==5:
+		if check_p:
 			message = "Mot de passe valide"
 		
 		
