@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Page de connexion</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Lien vers mon fichier CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"> <!-- Lien vers mon fichier CSS -->
 </head>
-<style>
-
-</style>
 <body>
     <div class="container">
+    <a href="/" class="back-button"><span>&times;</span></a>
        <h1>Connexion à votre compte</h1>
           <form method="POST">
              <label for="username">Identifiant:</label><br>

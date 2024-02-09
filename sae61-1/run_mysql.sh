@@ -15,3 +15,9 @@ echo "attente de securite pour acceder au serveur mysql"
 sleep 15
 
 mysql -u root -p'foo' -h 127.0.0.1 --port=3306 sae61 < "sql/sae61.sql" 2> /dev/null
+
+if [ $? != 0 ]
+	then
+		echo "échec d'import des tables de la BDD"
+		exit 1
+	fi
