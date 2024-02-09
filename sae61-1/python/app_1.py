@@ -113,7 +113,7 @@ def liste():
 	pass
 @app.route('/connect')
 def connect():
-	pass
+	return render_template('connect.html')
 
 
 
