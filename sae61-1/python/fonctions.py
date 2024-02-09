@@ -9,7 +9,16 @@ def validate_password(password):
 	regex5 = r".*[#%{}@].*" #au moins un de ces caractères
 	
 	tab_validation = [bool(re.match(regex1, password)), bool(re.match(regex2, password)), bool(re.match(regex3, password)), bool(re.match(regex4, password)), bool(re.match(regex5, password))]
-	return tab_validation	
+	return tab_validation
+
+def validate_username(uesername):
+	regex1 = r"^.{6,10}$" #entre 6 et 10 caractères
+	regex2 = r"^[^A-Z]*$" #Pas de majuscule
+	regex3 = r"^[a-z0-9]*$" #Seulement les caractères alphanumrique ascii à revoir pour celle là
+	
+	tab_validation = [bool(re.match(regex1, username)), bool(re.match(regex2, username)), bool(re.match(regex3, username))]
+	return tab_validation
+		
 #Config mysql-------------------------------------------
 db_config = {
 	'host': 'serveur-mysql',
