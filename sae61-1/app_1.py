@@ -27,6 +27,7 @@ def sql_insert(query):
 	conn = mysql.connector.connect(**db_config)
 	cursor = conn.cursor()
 	
+	#Execution de la requete
 	cursor.execute(query)
     
 	#fin de connexion
@@ -46,6 +47,7 @@ def sql_select(query):
 	#fin de connexion
 	cursor.close()
 	conn.close()
+	return data
 
 # Fin config mysql --------------------------------------
 
