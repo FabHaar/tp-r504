@@ -17,6 +17,8 @@ def index():
 @app.route('/newuser', methods=['GET', 'POST'])
 def new_user():
 	message_mdp = ''
+	message_email = ''
+	message_username = ''
 
 	if request.method == 'POST':                                       # En attente d'une requête de type POST
 		username = request.form['username']                        # Récupère l'identifiant saisi dans le formulaire HTML
@@ -49,7 +51,7 @@ def new_user():
 		
 		#if validate_username(username) and validate_email(email) and validate_password(password):  # Valide les champs
     
-	return render_template('newuser.html', message_mdp=message_mdp)            # Renvoie la page HTML 'newuser.html' avec le message à afficher
+	return render_template('newuser.html', message_mdp=message_mdp, message_email=message_email, message_username=message_username)            # Renvoie la page HTML 'newuser.html' avec le message à afficher
 
 
 	
