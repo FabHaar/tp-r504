@@ -1,16 +1,12 @@
 import fonctions
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 # Route pour la page d'accueil
 @app.route('/')
 def index():
-	return """
-	<h1>Accueil</h1>
-	<p>Bienvenue sur notre site !</p>
-	<p>Pour créer un nouveau compte, veuillez accéder à la <a href="/newuser">page de création de compte</a>.</p>
-	"""
+	return render_template('index.html')
 
 
 # Route pour la page de création de nouveau compte
@@ -57,10 +53,10 @@ def new_user():
 	
 @app.route('/liste')
 def liste():
-	pass
+	return render_template('liste.html')
 @app.route('/connect')
 def connect():
-	pass
+	return render_template('connect.html')
 
 
 

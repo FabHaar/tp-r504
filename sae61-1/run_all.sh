@@ -23,10 +23,21 @@ fi
 #Etape 0 : Création du lien réseau
 	./create_network.sh
 	
+	if [ $? != 0 ]
+	then
+		echo "échec de creation du réseau"
+		exit 1
+	fi
+	
 #Etape 1 : lancement du serveur mysql
 	./run_mysql.sh
-
-
+#problème avec la création de la DATABASE
+#	if [ $? != 0 ]
+#	then
+#		echo "échec de lancement du conteneur mysql"
+#		exit 1
+#	fi
+	
 #Etape 2 : Construction de l'image pour l'application flask
 	./build.sh
 
