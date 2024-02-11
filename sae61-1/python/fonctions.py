@@ -26,8 +26,8 @@ def validate_email(email):
 
 db_config = {
 	'host': 'serveur-mysql',
-	'user': 'python',
-	'password': 'python',
+	'user': 'root',
+	'password': 'foo',
 	'database': 'sae61',
 	'port': '3306'
 }
