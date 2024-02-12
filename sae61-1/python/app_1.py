@@ -100,10 +100,31 @@ def liste():
 	data = fonctions.sql_select("SELECT identifiant FROM utilisateurs")
 	return render_template('liste.html', data=data)
 
-@app.route('/connect')
+@app.route('/connect', methods=['GET', 'POST'])
 def connect():
 	message_mdp = ''
 	message_username = ''
+	
+	if request.method == 'POST':
+		username = request.form['username']                
+		password = request.form['password']
+		
+		query = "SELECT COUNT(*) AS count FROM utilisateurs WHERE identifiant = '{}'"
+		query = query.format(username)
+		
+		if fonctions.check_username_email(query):
+			query = "SELECT password FROM utilisateurs WHERE identifiant = '{}'"
+			query = query.format(username)
+			
+			if fonctions.sql_select(query)== fonctions.hash_password(password):
+				message_mdp = "connexion Réussie"
+			else:
+				print fonctions.hash_password(password)
+				print fonctions.sql_select(query)
+				message_mdp = "Mot de passe incorrect"
+		else:
+			message_username = "Identifiant incorrect"
+		
 	return render_template('connect.html', message_mdp=message_mdp, message_username=message_username)
 
 
