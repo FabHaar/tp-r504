@@ -40,6 +40,7 @@ def sql_insert(query):
 	
 	#Execution de la requete
 	cursor.execute(query)
+	conn.commit()
     
 	#fin de connexion
 	cursor.close()

@@ -61,25 +61,20 @@ def new_user():
 		
 		if check_u:
 			message_username = "Username valide"
-		
-		validation_email = fonctions.validate_email(email)
-		check_e = True
+
+		check_e = fonctions.validate_email(email)
 		message_email = "email valide"
 		
-		if not validation_email :
+		if not check_e :
 			message_email = "email non valide"
-			check_e = False
 		
-		#if validate_username(username) and validate_email(email) and validate_password(password):  # Valide les champs
-		# Declare le mdp comme étant un objet octet
-		#password = bytes(password, 'utf-8')
-		 
-		# Hash le mdp en utilisant Argon2
-		#hashed_password = argon2.hash_password(password)
-		
-		# Print the hashed password
-		#hashed_password
-		    		
+		if check_u and check_p and check_e:
+			hashed_password = fonctions.hash_password(password)
+			query = "INSERT INTO utilisateurs (identifiant, email, password) VALUES ('{}', '{}', '{}')"
+			query = query.format(username, email, hashed_password)
+			
+			fonctions.sql_insert(query)
+
 	return render_template('newuser.html', message_mdp=message_mdp, message_email=message_email, message_username=message_username)            # Renvoie la page HTML 'newuser.html' avec le message à afficher
 
 
