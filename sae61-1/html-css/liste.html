@@ -9,7 +9,15 @@
     <div class="container">
     <a href="/" class="back-button"><span>&times;</span></a>
        <h1>Liste des identifiants actuel</h1>
-          <!-- rajouter l'import des identifiants de la BDD  -->
+       <table>
+			{% for row in data %}
+		<tr>
+			{% for item in row %}
+				<td>{{ item }}</td>
+			{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>
 
 </body>
 </html>

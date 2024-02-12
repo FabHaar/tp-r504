@@ -62,7 +62,9 @@ def new_user():
 	
 @app.route('/liste')
 def liste():
-	return render_template('liste.html')
+	data = fonctions.sql_select("SELECT identifiant FROM utilisateurs")
+	return render_template('liste.html', data=data)
+
 @app.route('/connect')
 def connect():
 	return render_template('connect.html')
