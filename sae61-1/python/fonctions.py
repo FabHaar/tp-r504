@@ -61,8 +61,6 @@ def sql_select(query):
 	conn.close()
 	return data
 
-# Fin config mysql --------------------------------------
-
 def hash_password(password):
 	password_bytes = password.encode('utf-8')
 	sha256_hash = hashlib.sha256()
@@ -71,3 +69,18 @@ def hash_password(password):
 	
 	return hashed_password
 	
+def check_username_email(query):
+	# Connexion à la bdd
+	conn = mysql.connector.connect(**db_config)
+	cursor = conn.cursor()
+	
+	#Execution de la requete
+	cursor.execute(query)
+	#Recuperation du select
+	data = cursor.fetchone()
+	
+	#fin de connexion
+	cursor.close()
+	conn.close()
+	return data[0] > 0
+

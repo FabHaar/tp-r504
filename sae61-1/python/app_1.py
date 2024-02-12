@@ -69,11 +69,28 @@ def new_user():
 			message_email = "email non valide"
 		
 		if check_u and check_p and check_e:
-			hashed_password = fonctions.hash_password(password)
-			query = "INSERT INTO utilisateurs (identifiant, email, password) VALUES ('{}', '{}', '{}')"
-			query = query.format(username, email, hashed_password)
+			query = "SELECT COUNT(*) AS count FROM utilisateurs WHERE identifiant = '{}'"
+			query = query.format(username)
 			
-			fonctions.sql_insert(query)
+			insert = True
+			
+			if fonctions.check_username_email(query):
+				insert = False
+				message_username = message_username + " mais deja utilisé"
+				
+			query = "SELECT COUNT(*) AS count FROM utilisateurs WHERE email = '{}'"
+			query = query.format(email)
+				
+			if fonctions.check_username_email(query):
+				insert = False
+				message_email = message_email + " mais deja utilisé"
+			
+			if insert:
+				hashed_password = fonctions.hash_password(password)
+				query = "INSERT INTO utilisateurs (identifiant, email, password) VALUES ('{}', '{}', '{}')"
+				query = query.format(username, email, hashed_password)
+			
+				fonctions.sql_insert(query)
 
 	return render_template('newuser.html', message_mdp=message_mdp, message_email=message_email, message_username=message_username)            # Renvoie la page HTML 'newuser.html' avec le message à afficher
 
