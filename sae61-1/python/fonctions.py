@@ -1,5 +1,6 @@
 import mysql.connector
 import re
+import hashlib
 
 def validate_password(password):
 	regex1 = r"^.{6,15}$" #entre 6 et 15 caractères
@@ -60,3 +61,12 @@ def sql_select(query):
 	return data
 
 # Fin config mysql --------------------------------------
+
+def hash_password(password):
+	password_bytes = password.encode('utf-8')
+	sha256_hash = hashlib.sha256()
+	sha256_hash.update(password_bytes)
+	hashed_password = sha256_hash.hexdigest()
+	
+	return hashed_password
+	
