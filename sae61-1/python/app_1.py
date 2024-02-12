@@ -116,11 +116,11 @@ def connect():
 			query = "SELECT password FROM utilisateurs WHERE identifiant = '{}'"
 			query = query.format(username)
 			
-			if fonctions.sql_select(query)== fonctions.hash_password(password):
+			resultat = str(fonctions.sql_select(query))
+			password_hash = fonctions.hash_password(password)
+			if resultat[3:-4] == password_hash:
 				message_mdp = "connexion Réussie"
 			else:
-				print fonctions.hash_password(password)
-				print fonctions.sql_select(query)
 				message_mdp = "Mot de passe incorrect"
 		else:
 			message_username = "Identifiant incorrect"
