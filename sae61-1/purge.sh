@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #suppression de la bdd
-mysql -u root -p'foo' -h 127.0.0.1 --port=3306 sae61 < "sql/purge.sql" 2> /dev/null
+mysql -u root -p'foo' -h 127.0.0.1 --port=3306 sae61 < "sql/purge.sql"
 if [ $? != 0 ]
 then
 	echo "echec de la suppression de la BDD"

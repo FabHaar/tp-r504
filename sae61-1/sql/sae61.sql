@@ -1,4 +1,3 @@
-CREATE DATABASE sae61;
 USE sae61;
 
 CREATE TABLE utilisateurs (

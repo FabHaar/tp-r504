@@ -7,6 +7,7 @@ docker run --rm -d \
 		--env MYSQL_ROOT_PASSWORD=foo \
 		--env MYSQL_USER=python \
 		--env MYSQL_PASSWORD=python \
+		--env MYSQL_DATABASE=sae61 \
 		--network net-sae61 \
 		mysql
 
@@ -15,7 +16,7 @@ docker run --rm -d \
 echo "attente de securite pour acceder au serveur mysql"
 sleep 15
 
-mysql -u root -p'foo' -h 127.0.0.1 --port=3306 < "sql/sae61.sql" 2> /dev/null
+mysql -u python -p'python' -h 127.0.0.1 --port=3306 < "sql/sae61.sql"
 
 if [ $? != 0 ]
 	then
