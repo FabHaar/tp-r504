@@ -15,6 +15,7 @@ def new_user():
 	message_mdp = ''
 	message_email = ''
 	message_username = ''
+	message_succes = ''
 	
 	if request.method == 'POST':                                       # En attente d'une requête de type POST
 		username = request.form['username']                        # Récupère l'identifiant saisi dans le formulaire HTML
@@ -88,10 +89,12 @@ def new_user():
 				hashed_password = fonctions.hash_password(password)
 				query = "INSERT INTO utilisateurs (identifiant, email, password) VALUES ('{}', '{}', '{}')"
 				query = query.format(username, email, hashed_password)
+				
+				message_succes = "Compte créé avec succès"
 			
 				fonctions.sql_insert(query)
 
-	return render_template('newuser.html', message_mdp=message_mdp, message_email=message_email, message_username=message_username)            # Renvoie la page HTML 'newuser.html' avec le message à afficher
+	return render_template('newuser.html', message_mdp=message_mdp, message_email=message_email, message_username=message_username, message_succes=message_succes)            # Renvoie la page HTML 'newuser.html' avec le message à afficher
 
 
 	
@@ -119,7 +122,7 @@ def connect():
 			resultat = str(fonctions.sql_select(query))
 			password_hash = fonctions.hash_password(password)
 			if resultat[3:-4] == password_hash:
-				message_mdp = "connexion Réussie"
+				message_mdp = "Connexion Réussie"
 			else:
 				message_mdp = "Mot de passe incorrect"
 		else:
