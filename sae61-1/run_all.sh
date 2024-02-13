@@ -20,7 +20,7 @@ then
 	exit 1
 fi
 
-#Etape 0 : Création du lien réseau
+#Etape 1 : Création du lien réseau
 	./create_network.sh
 	
 	if [ $? != 0 ]
@@ -29,7 +29,7 @@ fi
 		exit 1
 	fi
 	
-#Etape 1 : lancement du serveur mysql
+#Etape 2 : lancement du serveur mysql
 	./run_mysql.sh
 #problème avec la création de la DATABASE
 #	if [ $? != 0 ]
@@ -38,7 +38,7 @@ fi
 #		exit 1
 #	fi
 	
-#Etape 2 : Construction de l'image pour l'application flask
+#Etape 3 : Construction de l'image pour l'application flask
 	./build.sh
 
 
@@ -48,7 +48,7 @@ fi
 		exit 1
 	fi
 	
-#Etape 3 : Lancement du conteneur de l'application flask
+#Etape 4 : Lancement du conteneur de l'application flask
 	./run_app.sh
 	
 	
@@ -59,11 +59,11 @@ fi
 	fi
 
 
-## Etape 4 : Résultat
+## Etape 5 : Résultat
 # Ouvre la page http://localhost:5000/ dans le navigateur par défaut
 	xdg-open http://localhost:5000/ 2>/dev/null
 
-
+# Si cette erreur s'est lancé, c'est pas grave, cela ne veut pas dire que le projet ne fonctionne pas
 	if [ $? != 0 ]
 	then
 		echo "échec de lancement du navigateur, veuillez ouvrir la page http://localhost:5000/ dans votre navigateur "
