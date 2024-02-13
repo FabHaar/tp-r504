@@ -13,6 +13,10 @@ Groupe FI
 | 2         | Lancement du conteneur mysql avec à l'aide d'options `--env` de créer directement la base de données ainsi que l'utilisateur qui permettra à l'application python de se connecter. Il y a une pause pour être sûr que le conteneur soit accessible, puis une requête est faite pour créer la table utilisateur. |
 | 3         | Construction de l'image de l'application python flask                                                                                                                                                                                                                                                           |
 | 4         | Lancement du conteneur de l'application python flask                                                                                                                                                                                                                                                            |
-| 5         | Lancement du navigateur sur `localhost:5000` qui affiche la page d'acceuil du site. si cette étape échoue, on peut aller sur un navigateur et rentrer l'URL manuellement.                                                                                                                                       |
+| 5         | Lancement du navigateur sur `localhost:5000` qui affiche la page d'acceuil du site. si cette étape échoue, on peut aller sur un navigateur et rentrer l'URL manuellement. 
+
+## Base de données utilisée 
+![sae61](sae61.png)
+
 # Troubleshooting : 
 ## Probleme 1 :
