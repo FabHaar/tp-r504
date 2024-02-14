@@ -25,6 +25,7 @@ def validate_email(email):
 	
 	return bool(re.match(regex, email))
 
+#info de connexion pour la base de donnees
 db_config = {
 	'host': 'serveur-mysql',
 	'user': 'python',
@@ -33,6 +34,7 @@ db_config = {
 	'port': '3306'
 }
 
+#fonction pour faire un insert dans la bdd
 def sql_insert(query):
 	# Connexion à la bdd
 	conn = mysql.connector.connect(**db_config)
@@ -45,7 +47,8 @@ def sql_insert(query):
 	#fin de connexion
 	cursor.close()
 	conn.close()
-    
+
+#fonction pour faire un select dans la bdd
 def sql_select(query):
 	# Connexion à la bdd
 	conn = mysql.connector.connect(**db_config)
@@ -61,6 +64,7 @@ def sql_select(query):
 	conn.close()
 	return data
 
+#fonction pour crypter un mdp
 def hash_password(password):
 	password_bytes = password.encode('utf-8')
 	sha256_hash = hashlib.sha256()
@@ -69,6 +73,8 @@ def hash_password(password):
 	
 	return hashed_password
 	
+#fonction pour vérifier si un email ou un username existe dans la bdd
+#fonctionne un peu différement de la focntion sql_select
 def check_username_email(query):
 	# Connexion à la bdd
 	conn = mysql.connector.connect(**db_config)
