@@ -88,5 +88,7 @@ def check_username_email(query):
 	#fin de connexion
 	cursor.close()
 	conn.close()
+	
+	#retourne True si le username ou email existe dans la bdd False s'il existe pas
 	return data[0] > 0
 
