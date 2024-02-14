@@ -20,24 +20,4 @@ Groupe FI
 
 # Troubleshooting : 
 ## Base de données :
-Plusieurs problèmes concernant la base de données ont pu être constatés : 
-
-* La base de données ne contenait pas la table voulue, on ne pouvait faire aucun tests. Il y avait certianement un conflit entre la création de la base de données et ensuite via la requête SQL pour créé la table (qui créait aussi la base de données). Ce problème a été temporairement réglé en créant la base de données uniquement via la requête sans la créer vide via par la création du conteneur.
-* L'utilisateur python ne pouvait pas accèder à la base, ce problème découlait directement du précédent car l'utilisateur créé par le conteneur a les droits sur la base de données uniquement si la base est créée par la création du conteneur.<br>
-
-Tous ces problèmes sont définitivement résolues par l'adaptation des options ssuivantes sur les conteneur :<br>
-`--env MYSQL_USER=python`<br>
-`--env MYSQL_PASSWORD=python`<br>
-`--env MYSQL_DATABASE=sae61`<br>
-Ainsi que l'execution de la commande :<br>
-`mysql -u python -p'python' -h 127.0.0.1 --port=3306 < "sql/sae61.sql"`<br>
-Avec dans le fichier sae61.sql : <br><br>
-`USE sae61;`<br>
-<br>`CREATE TABLE utilisateurs (`<br>
-  `id INT AUTO_INCREMENT PRIMARY KEY,`<br>
-  `identifiant VARCHAR(255) NOT NULL,`<br>
-  `email VARCHAR(255) NOT NULL,`<br>
-  `password VARCHAR(255) NOT NULL`<br>
-`);`<br>
-<br>
-C'est cette association qui permet la bonne création de la base de données utilisable par l'utilisateur python.
+Avec certains systèmes, il est possible que la base de données ne soit pas créé par l'option `MYSQL_DATABASE=sae61`. Si ce bug a été observé, le script maitre alternatif `run_all2.sh` peut être lancé pour régler ce probleme. Au lieu de `run_mysql.sh` le script `run_mysql2.sh` qui au lieu de créer la base de données via la création du conteneur, le sera via une requete utilisant le client mysql de l'hôte qui donnera aussi les droits nécessaire à l'utilisateur python.
