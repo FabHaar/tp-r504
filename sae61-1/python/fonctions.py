@@ -15,7 +15,7 @@ def validate_password(password):
 def validate_username(username):
 	regex1 = r"^.{6,10}$" #entre 6 et 10 caractères
 	regex2 = r"^[^A-Z]*$" #Pas de majuscule
-	regex3 = r"^[a-z0-9]*$" #Seulement les caractères alphanumrique ascii à revoir pour celle là
+	regex3 = r"^[a-zA-Z0-9]*$" #Seulement les caractères alphanumrique ascii à revoir pour celle là
 	
 	tab_validation = [bool(re.match(regex1, username)), bool(re.match(regex2, username)), bool(re.match(regex3, username))]
 	return tab_validation
