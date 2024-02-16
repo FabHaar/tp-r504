@@ -138,7 +138,7 @@ def connect():
 		else: #cas username incorrect
 			message_username = "Identifiant incorrect"
 		
-	return render_template('connect.html', message_mdp=message_mdp, message_username=message_username) #
+	return render_template('connect.html', message_mdp=message_mdp, message_username=message_username)
 
 
 
