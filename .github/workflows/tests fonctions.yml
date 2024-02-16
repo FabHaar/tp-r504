@@ -1,4 +1,4 @@
-name: tests hash password
+name: tests regex
 on: [push]
 jobs:
   build:
@@ -13,6 +13,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Installation de python
-        run: pip3 install pytest
+        run: pip3 install pytest mysql-connector-python 
       - name: Run tests fonctions
         run: pytest sae61-1/python/test.py
