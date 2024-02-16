@@ -15,4 +15,4 @@ jobs:
       - name: Installation de python
         run: pip3 install pytest
       - name: Run tests fonctions
-        run: pytest sae61-1/test.py
+        run: pytest sae61-1/python/test.py
