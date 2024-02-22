@@ -1,3 +1,12 @@
 GRAND 2 préliminaires
 	2.1  longueur du hash : 128 bits
 	Cet algorithme n'est pas suffisament fiable car différent messages peuvent produire le même hash
+	Aujourd'hui on utilise l'algorithme SHA256
+	La longueur du hash avec SHA256 est de 265 bits
+	
+	Il y a 140 certificats sur ma machine virtuelle
+	
+	Le contenu dans le certificat et dans l'export est identique.
+	
+GRAND 3 préparation des machines
+	
